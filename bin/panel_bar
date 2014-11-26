@@ -1,0 +1,94 @@
+#! /bin/sh
+
+# . /home/rlee/scripts/panel_colors-bar
+
+#dtch
+#DARK="#FF666666"
+#WHITE="#FFFFFFFF"
+#BG="#FF222222"
+
+#sepia
+#DARK="#FF666666"
+#WHITE="#FFC1612E"
+#BG="#FF222222"
+
+#z3bra
+DARK="#FF666666"
+WHITE="#FFCEE318"
+BG="#FF222222"
+
+
+#frenchvanilla
+#DARK="#FFF1D4AF"
+#WHITE="#FF98FB98"
+#BG="#FF222222"
+
+#gotham
+#DARK="#FF98D1CE"
+#WHITE="#FFEDB54B"
+#BG="#FF10151B"
+
+#workspace(){
+#    SPACE_NUM=$(bspc query -D -d);
+#        case "$SPACE_NUM" in
+#            "1")
+#                WORKSPACE="%{F$WHITE}●%{F-} %{F$DARK}● ●%{F-}";;
+#            "2")
+#                WORKSPACE="%{F$DARK}●%{F-} %{F$WHITE}●%{F-} %{F$DARK}●%{F-}";;
+#            "3")
+#                WORKSPACE="%{F$DARK}● ●%{F-} %{F$WHITE}●%{F-}";;
+#        esac
+#    echo -n $WORKSPACE
+#}
+
+workspace(){
+    SPACE_NUM=$(bspc query -D -d);
+        case "$SPACE_NUM" in
+            "1")
+                WORKSPACE="%{F$WHITE}i%{F-} %{F$DARK}ii iii iv v%{F-}";;
+            "2")
+                WORKSPACE="%{F$DARK}i%{F-} %{F$WHITE}ii%{F-} %{F$DARK}iii iv v%{F-}";;
+            "3")
+                WORKSPACE="%{F$DARK}i ii%{F-} %{F$WHITE}iii%{F-} %{F$DARK}iv v%{F-}";;
+            "4")
+                WORKSPACE="%{F$DARK}i ii iii%{F-} %{F$WHITE}iv%{F-} %{F$DARK}v%{F-}";;
+            "5")
+                WORKSPACE="%{F$DARK}i ii iii iv%{F-} %{F$WHITE}v%{F-}";;
+        esac
+    echo -n $WORKSPACE
+}
+
+dat(){
+	echo -n  $(date "+%H.%M")
+}
+
+mus(){
+    echo -n $(test -z "$(mpc current)" || mpc current -f "%title%" )
+	#echo -n  $(test -z "$(mpc current)" || mpc current -f "[[%title% - ]%artist%]"  )
+	#echo -n $(ps aux | grep -v "grep" | if grep -q "cmus"; then echo $(cmus-remote -Q | sed -n 's/tag title //p'); else echo "n/a"; fi)
+}
+
+vol(){
+    amixer get PCM | sed -n 's/^.*\[\([0-9]\+\)%.*$/\1/p' | uniq
+#    echo -n $(amixer get PCM | grep "Front Left:" | awk '{print $5}' | grep [[:digit:]])
+}
+
+pause(){
+    #echo -n $(mpc | if grep -q "paused"; then echo -n ".paused"; else echo -n ".playing"; fi)
+    echo -n $(mpc | if grep -q "paused"; then echo -n "⮔"; else echo -n "⮕"; fi)
+}
+
+while :; do
+
+#    printf "%s\n" "%{B$BG}%{l} %{F$R2}%{B$B1} $(pause) %{B-}%{F-} %{F$WHITE}$(mus)%{F-} %{B$B1}%{F$R2} .vol %{F-}%{B-} $(vol)%{F-} %{c} $(workspace) %{r} %{B$B1}%{F$MAG} .weather %{F-}%{B-} %{F$WHITE}$(wth) %{F-} %{B$B1}%{F$MAG} .time %{F-}%{B-} %{F$WHITE}$(dat)%{F-}%{B$BG} "
+
+#    printf "%s\n" "%{B$BG}%{l} %{F$R2}%{B$B1} $(pause) %{B-}%{F-} %{F$WHITE}$(mus)%{F-} %{B$B1}%{F$R2} ⮞ %{F-}%{B-} $(vol)%{F-} %{c} $(workspace) %{r} %{B$B1}%{F$MAG} ✳ %{F-}%{B-} %{F$WHITE}$(wth) %{F-} %{B$B1}%{F$MAG} ⮖ %{F-}%{B-} %{F$WHITE}$(dat)%{F-}%{B$BG} "
+
+    printf "%s\n" "%{B$BG}%{l} $(workspace) %{c}$(xtitle) %{r}%{F$DARK}CLK%{F-} %{F$WHITE}$(dat)%{F-}%{B$BG} "
+
+#    printf "%s\n" "%{B$BG}%{l} %{F$DARK}MPD:%{F-} %{F$WHITE}$(mus)%{F-} %{F$DARK}VOL:%{F-} %{F$WHITE}$(vol)%{F-} %{c} $(workspace) %{r} %{F$DARK}WEATHER:%{F-} %{F$WHITE}$(wth)%{F-} %{F$DARK}TIME:%{F-} %{F$WHITE}$(dat)%{F-}%{B$BG} "
+
+#    printf "%s\n" "%{l} $(pause) $(mus) $(vol) %{c}$(workspace) %{r} $(wth) // $(dat) " 
+#    printf "%s\n" "%{l} $(mus) $(vol) %{c} $(workspace) %{r} $(date) "
+sleep 1
+done

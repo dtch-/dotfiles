@@ -1,0 +1,47 @@
+!ObliviousGmnColors
+   URxvt*foreground: #ECEDEE
+   URxvt*background: #111111
+!black
+   URxvt*color0: #2E1F1F
+   URxvt*color8: #422D2D
+!red
+   URxvt*color1: #AA0E50
+   URxvt*color9: #BE0E50
+!green
+   URxvt*color2: #1DCC9F
+   URxvt*color10: #1FD9A9
+!yellow
+   URxvt*color3: #27C282
+   URxvt*color11: #2CDB93
+!blue
+   URxvt*color4: #7182A8
+   URxvt*color12: #8194BF
+!magenta
+   URxvt*color5: #A673A6
+   URxvt*color13: #7F5AA1
+!cyan
+   URxvt*color6: #6DA3A1
+   URxvt*color14: #669997
+!white
+   URxvt*color7: #B7BBBD
+   URxvt*color15: #D9D9D9
+
+!--urxvt-----
+
+
+!urxvt*font: 		-*-gohufont-*-r-normal-*-11-80-100-*-c-60-*-1
+!urxvt*boldFont: 	-*-gohufont-*-r-normal-*-11-80-100-*-c-60-*-1
+!urxvt*italicFont: 	-*-gohufont-*-r-normal-*-11-80-100-*-c-60-*-1
+!urxvt*bolditalicFont: 	-*-gohufont-*-r-normal-*-11-80-100-*-c-60-*-1
+
+urxvt*font: 		-*-neep-medium-r-semicondensed-*-11-*-*-*-*-*-*-*
+urxvt*boldFont:  	-*-neep-medium-r-semicondensed-*-11-*-*-*-*-*-*-*
+urxvt*italicFont: 	-*-neep-medium-r-semicondensed-*-11-*-*-*-*-*-*-*
+urxvt*bolditalicFont: 	-*-neep-medium-r-semicondensed-*-11-*-*-*-*-*-*-*
+
+urxvt*scrollBar: 	false
+urxvt*saveLines: 	4096
+urxvt*pointerBlank: 	true
+urxvt*colorIT:		#FAFAFA
+urxvt*colorBD:		#6D9EAC
+urxvt*colorUL:		#E04614

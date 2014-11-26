@@ -1,0 +1,11 @@
+#!/bin/bash
+# (@)/params x y z
+# Prints out parameters
+
+ONE=$1
+TWO=$2
+THREE=$3
+
+echo -e "There are $# parameters that include $@."
+echo -e "The first is $ONE, the second is $TWO, the third is $THREE."
+

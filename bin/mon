@@ -1,0 +1,8 @@
+#!/bin/sh
+
+while :; do
+    clear
+    bat
+    echo "The current time is $(date +'%H.%M')"
+    sleep 60
+done

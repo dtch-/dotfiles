@@ -1,0 +1,48 @@
+*background:#222222
+*foreground:#e8e9ca
+
+! BLK RED GRN YLW BLU MAG CYN WHT
+
+*color0:    #222222
+*color1:    #8b3e2f
+*color2:    #526f33
+*color3:    #665847
+*color4:    #4a708b
+*color5:    #7a378b
+*color6:    #528b8b
+*color7:    #999999
+
+*color8:    #4c4c4c
+*color9:    #d75f00
+*color10:   #cee318
+*color11:   #eee685
+*color12:   #9ac0cd
+*color13:   #9f79ee
+*color14:   #79cdcd
+*color15:   #e8e9ca
+
+!--urxvt-----
+
+!urxvt*font:        -*-uushi-medium-r-*-*-11-*-*-*-*-*-*-*
+!urxvt*boldFont:    -*-uushi-medium-r-*-*-11-*-*-*-*-*-*-*
+!urxvt*italicFont:  -*-uushi-medium-r-*-*-11-*-*-*-*-*-*-*
+!urxvt*bolditalicFont:  -*-uushi-medium-r-*-*-11-*-*-*-*-*-*-*
+
+!urxvt*font:        -*-tewi-*-r-normal-*-11-*-*-*-*-*-*-*
+!urxvt*boldFont:    -*-tewi-*-r-normal-*-11-*-*-*-*-*-*-*
+!urxvt*italicFont:  -*-tewi-*-r-normal-*-11-*-*-*-*-*-*-*
+!urxvt*bolditalicFont:  -*-tewi-*-r-normal-*-11-*-*-*-*-*-*-*
+
+urxvt*font:         -*-gohufont-*-r-normal-*-11-80-100-*-c-60-*-1
+urxvt*boldFont:     -*-gohufont-*-r-normal-*-11-80-100-*-c-60-*-1
+urxvt*italicFont:   -*-gohufont-*-r-normal-*-11-80-100-*-c-60-*-1
+urxvt*bolditalicFont:   -*-gohufont-*-r-normal-*-11-80-100-*-c-60-*-1
+
+!urxvt*font:        -*-neep-medium-r-semicondensed-*-11-*-*-*-*-*-*-*
+!urxvt*boldFont:    -*-neep-medium-r-semicondensed-*-11-*-*-*-*-*-*-*
+!urxvt*italicFont:  -*-neep-medium-r-semicondensed-*-11-*-*-*-*-*-*-*
+!urxvt*bolditalicFont:  -*-neep-medium-r-semicondensed-*-11-*-*-*-*-*-*-*
+
+urxvt*scrollBar:        false
+urxvt*saveLines:        4096
+urxvt*pointerBlank:     true

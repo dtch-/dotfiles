@@ -1,0 +1,80 @@
+! github.com/dtch-
+
+! special
+*background:    #222222
+*foreground:    #eeeeee
+
+! blk
+*color0:        #222222
+*color8:        #666666
+! red
+*color1:        #ff3333 
+*color9:        #ff6600
+! grn
+*color2:        #cee318
+*color10:       #a5b613
+! yel
+*color3:        #ffff7d
+*color11:       #eee685
+! blu
+*color4:        #66c2ff
+*color12:       #529bcc
+! mag
+*color5:        #9f79ee
+*color13:       #7f61be
+! cyn
+*color6:        #70ffff
+*color14:       #5acccc
+! wht
+*color7:        #ffffff
+*color15:       #cccccc
+
+!--urxvt-----
+
+!urxvt*font:             -*-creep-*-*-*-*-16-*-*-*-*-*-*-1
+!urxvt*boldFont:         -*-creep-*-*-*-*-16-*-*-*-*-*-*-1
+!urxvt*italicFont:       -*-creep-*-*-*-*-16-*-*-*-*-*-*-1
+!urxvt*bolditalicFont:   -*-creep-*-*-*-*-16-*-*-*-*-*-*-1
+
+!urxvt*font:             -*-proggytinysz-medium-r-normal-*-10-*-*-*-*-*-*-1
+!urxvt*boldFont:         -*-proggytinysz-medium-r-normal-*-10-*-*-*-*-*-*-1
+!urxvt*italicFont:       -*-proggytinysz-medium-r-normal-*-10-*-*-*-*-*-*-1
+!urxvt*bolditalicFont:   -*-proggytinysz-medium-r-normal-*-10-*-*-*-*-*-*-1
+
+!urxvt*font:             -*-lemon-medium-r-normal-*-10-*-*-*-*-*-*-1
+!urxvt*boldFont:         -*-lemon-medium-r-normal-*-10-*-*-*-*-*-*-1
+!urxvt*italicFont:       -*-lemon-medium-r-normal-*-10-*-*-*-*-*-*-1
+!urxvt*bolditalicFont:   -*-lemon-medium-r-normal-*-10-*-*-*-*-*-*-1
+
+!urxvt*font:             -*-uushi-medium-r-normal-*-11-*-*-*-*-*-*-1
+!urxvt*boldFont:         -*-uushi-medium-r-normal-*-11-*-*-*-*-*-*-1
+!urxvt*italicFont:       -*-uushi-medium-r-normal-*-11-*-*-*-*-*-*-1
+!urxvt*bolditalicFont:   -*-uushi-medium-r-normal-*-11-*-*-*-*-*-*-1
+
+urxvt*font:         -*-gohufont-*-r-normal-*-11-80-100-*-c-60-*-1
+urxvt*boldFont:     -*-gohufont-*-r-normal-*-11-80-100-*-c-60-*-1
+urxvt*italicFont:   -*-gohufont-*-r-normal-*-11-80-100-*-c-60-*-1
+urxvt*bolditalicFont:   -*-gohufont-*-r-normal-*-11-80-100-*-c-60-*-1
+
+!urxvt*font:             -*-neep-medium-r-semicondensed-*-11-*-*-*-*-*-*-*
+!urxvt*boldFont:         -*-neep-medium-r-semicondensed-*-11-*-*-*-*-*-*-*
+!urxvt*italicFont:       -*-neep-medium-r-semicondensed-*-11-*-*-*-*-*-*-*
+!urxvt*bolditalicFont:   -*-neep-medium-r-semicondensed-*-11-*-*-*-*-*-*-*
+
+!urxvt*font:             -*-tewi-medium-r-normal-*-11-*-*-*-*-*-*-1
+!urxvt*boldFont:         -*-tewi-medium-r-normal-*-11-*-*-*-*-*-*-1
+!urxvt*italicFont:       -*-tewi-medium-r-normal-*-11-*-*-*-*-*-*-1
+!urxvt*bolditalicFont:   -*-tewi-medium-r-normal-*-11-*-*-*-*-*-*-1
+
+! 0 to 99 darkens, 101 to 200 lightens
+!urxvt*.transparent: true
+!urxvt*.shading: 20
+
+urxvt.perl-ext: default,url-select
+urxvt.keysym.M-u: perl:url-select:select_next
+urxvt.url-select.launcher: /usr/bin/xdg-open
+urxvt.url-select.underline: true
+ 
+urxvt*scrollBar:        false
+urxvt*saveLines:        4096
+urxvt*pointerBlank:     true

@@ -1,0 +1,11 @@
+#!/bin/bash
+# (@)/myos
+
+echo "What is your favorite OS? "
+read INPUT
+
+if [ $INPUT == "Linux" ] ; then
+    echo "Great choice!"
+else
+    echo "Is $INPUT an operating system?"
+fi

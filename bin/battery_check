@@ -1,0 +1,10 @@
+#!/bin/sh
+#
+# z3bra - (c) wtfpl 2014
+# check battery level, and raise a notification if the capacity is under a 
+# defined level
+
+LEVL=15
+BATC=$(sed 's/%//' /sys/class/power_supply/BAT0/capacity)
+
+test ${BATC} -le ${LEVL} && popup battery level: ${BATC}

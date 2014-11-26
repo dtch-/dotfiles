@@ -1,0 +1,39 @@
+#!/bin/sh
+#
+# z3bra - (c) wtfpl 2014
+# Create/list/attach/detach applications using dtach
+
+sockdir=~/var/run
+keyseq=
+
+list() {
+    # change colors, for fun!
+    ls -1 $sockdir
+}
+
+usage() {
+    echo "`basename $0` [-hl] <alias> [command]"
+}
+
+while getopts "hl" opt; do
+    case $opt in
+        l) list; exit 0 ;;
+        h) usage; exit 0 ;;
+        *) usage; exit 1 ;;
+    esac
+done
+
+shift $((OPTIND - 1))
+
+case $# in
+    0) usage; exit 1;;
+    1) method=a;;
+    *) method=A;;
+esac
+name=$1
+
+shift
+
+socket="${sockdir}/${name}"
+
+dtach -${method} ${socket} -e ${keyseq} -r winch $@

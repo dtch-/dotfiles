@@ -1,0 +1,16 @@
+#!/bin/sh
+
+
+BATC="/sys/class/power_supply/BAT0/capacity"
+BATS="/sys/class/power_supply/BAT0/status"
+
+STAT=`sed -n p ${BATS}`
+LVL=`sed -n p ${BATC}`
+
+if [ ${STAT} = "Charging" ] ; then
+    echo "Battery is charging, current level is ${LVL}%"
+elif [ ${STAT} = "Full" ] ; then
+    echo "Battery is fully charged. Please disconnect charger."
+else
+    echo "Battery is discharging, current level is ${LVL}%"
+fi

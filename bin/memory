@@ -1,0 +1,62 @@
+#!/bin/bash
+#
+# z3bra - (c) wtfpl 2014
+
+usage () {
+    cat <<EOF
+usage: $(basename $0) [-hptu]
+    -h : print help
+    -p : percentage of memory used (default)
+    -t : total available memory
+    -u : memory used (human-readable)
+EOF
+}
+
+# display the total of available memory in human readable format
+memtotal () {
+    read mem <<< `grep -E 'MemTotal' /proc/meminfo |awk '{print $2}'`
+
+    if [ $mem -gt 1048576 ]; then
+        mem=`bc <<< "scale=2; $mem / 1048576"`
+        mem="${mem}G"
+    elif [ $mem -gt 1024 ]; then
+        mem=`bc <<< "$mem / 1024"`
+        mem="${mem}M"
+    fi
+
+    echo $mem
+}
+
+# display the memory used in human readable format
+memused () {
+    read t f <<< `grep -E 'Mem(Total|Free)' /proc/meminfo |awk '{print $2}'`
+    read b c <<< `grep -E '^(Buffers|Cached)' /proc/meminfo |awk '{print $2}'`
+    mem=`bc <<< "($t - $f - $c - $b)"`
+
+    if [ $mem -gt 1048576 ]; then
+        mem=`bc <<< "scale=2; $mem / 1048576"`
+        mem="${mem}G"
+    elif [ $mem -gt 1024 ]; then
+        mem=`bc <<< "$mem / 1024"`
+        mem="${mem}M"
+    fi
+
+    echo $mem
+}
+
+# display the memory used in percentage
+memperc () {
+    read t f <<< `grep -E 'Mem(Total|Free)' /proc/meminfo |awk '{print $2}'`
+    read b c <<< `grep -E '^(Buffers|Cached)' /proc/meminfo |awk '{print $2}'`
+    mem=`bc <<< "100 * ($t - $f - $c - $b) / $t"`
+
+    echo "${mem}%"
+}
+
+
+case $1 in
+    -h) usage;;
+    -t) memtotal;;
+    -u) memused;;
+     *) memperc;;
+ esac

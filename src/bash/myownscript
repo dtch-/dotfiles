@@ -1,0 +1,9 @@
+#!/bin/bash
+# (@)pwdate
+# Prints working directory, date, and hostname
+
+DATE=`date`
+DIR=`pwd`
+HOSTNAME=`cat /etc/hostname`
+
+echo -e "Today is $DATE.\nYou are in $DIR and your hostname is $HOSTNAME"

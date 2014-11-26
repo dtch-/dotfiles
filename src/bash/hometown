@@ -1,0 +1,9 @@
+#!/bin/bash
+# (@)/hometown
+# Prints out your street and hometown
+# $1: street $2: town
+
+STREET=$1
+TOWN=$2
+
+echo -e "The street I grew up on was $STREET and the town was $TOWN."

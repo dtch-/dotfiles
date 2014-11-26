@@ -1,0 +1,5 @@
+#!/bin/sh
+# dtch - (c) 2014
+# cats file ~/.todo to less
+
+cat ~/.todo | less

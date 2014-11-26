@@ -1,0 +1,53 @@
+#!/bin/sh
+
+COLOR=${COLOR:-15}
+
+c() { tput setaf $COLOR; }
+d() { tput sgr0; }
+
+gitdir=http://www.github.com/dtch-/
+myblog=http://www.dtch.info/
+BATC="/sys/class/power_supply/BAT0/capacity"
+BATS="/sys/class/power_supply/BAT0/status"
+
+system() {
+    sed "/^$/d;s/\s*[\(\\]\+.*$//" /etc/issue
+}
+
+cpuinfo() {
+    sed -n "/model\ name/s/^.*:\ //p" /proc/cpuinfo | sed 1q
+}
+
+mydate() {
+    date
+}
+
+wmname() {
+    echo "swm"
+#    xprop -root WM_NAME | cut -d\" -f2
+}
+
+fontname() {
+    xrdb -query|sed "/urxvt\*font/s/^[^-]*-\*-\([^-]*\)-.*$/\1/p;d"
+}
+
+bat() {
+    test "`cat $BATS`" = "Charging" && echo -n '+' || echo -n '-'
+    sed -n p $BATC
+}
+
+cat <<EOF
+
+$(c)SYSTEM    $(d)$(system)
+$(c)KERNEL    $(d)$(uname -r)
+$(c)HOSTNAME  $(d)$HOSTNAME
+$(c)WMNAME    $(d)$(wmname)
+$(c)TERMINAL  $(d)$TERM
+$(c)SHELL     $(d)$SHELL
+$(c)FONT      $(d)$(fontname)
+$(c)BAT       $(d)$(bat)
+$(c)PROC      $(d)$(~/bin/cpu -p)
+$(c)MEMORY    $(d)$(~/bin/memory -u)
+$(c)DATE      $(d)$(mydate)
+
+EOF

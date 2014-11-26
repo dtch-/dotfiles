@@ -1,0 +1,173 @@
+#
+# swm/swc/corewm
+#
+
+#
+# wm independant
+#
+
+# terminal
+
+super + Return
+    urxvt -g 63x15
+
+super + alt + Escape
+    pkill X
+
+super + space
+	dmenu_run -nb \#1d1d1d -sb \#1d1d1d -nf \#999999 -sf \#ffffff -fn "-*-neep-medium-r-semicondensed-*-11-*-*-*-c-*-*-*"
+
+# cursor movement keys
+
+super + alt + j
+    xdotool mousemove_relative -- -50 0
+
+super + alt + l
+    xdotool mousemove_relative -- 0 -50
+
+super + alt + k
+    xdotool mousemove_relative 0 50
+
+super + alt + semicolon
+    xdotool mousemove_relative 50 0 
+
+#
+# swc keys
+#
+
+# movement
+
+super + j
+    swc -m x -50
+
+super + k
+    swc -m y +50
+
+super + l
+    swc -m y -50
+
+super + semicolon
+    swc -m x +50
+
+# tight movement
+
+super + ctrl + j
+    swc -m x -10
+
+super + ctrl + k
+    swc -m y +10
+
+super + ctrl + l
+    swc -m y -10
+
+super + ctrl + semicolon
+    swc -m x +10
+
+# resize
+
+super + shift + j
+    swc -r x -50
+
+super + shift + k
+    swc -r y +50
+
+super + shift + l
+    swc -r y -50
+
+super + shift + semicolon
+    swc -r x +50
+
+# tight resize
+
+super + shift + ctrl + j
+    swc -r x -10
+
+super + shift + ctrl + k
+    swc -r y +10
+
+super + shift + ctrl + l
+    swc -r y -10
+
+super + shift + ctrl + semicolon
+    swc -r x +10
+
+super + q
+    swc -kill
+
+super + Tab
+    swc -focus next
+
+#
+# corewm
+#
+
+# to come
+
+#   
+# media keys (mpc must be installed)
+# macbook pro
+#
+
+#super + F7
+#    mpc prev
+#
+#super + F8
+#    mpc play
+#
+#super + alt + F8
+#    mpc pause
+#
+#super + F9
+#    mpc next
+#
+#super + F10
+#    mpc volume 0
+#
+#super + F11
+#    mpc volume -10
+#
+#super + alt + F11
+#    mpc volume -2
+#
+#super + F12
+#    mpc volume +10
+#
+#super + alt +F12
+#    mpc volume +2
+
+# desktop keys
+
+super + F5
+    mpc play
+
+super + F6
+    mpc pause
+
+super + F7
+    mpc prev
+
+super + F8
+    mpc next
+
+super + F10
+    mpc volume 0
+
+super + F11
+    mpc volume -10
+
+super + F12
+    mpc volume +10
+
+#
+# wm independent hotkeys
+#
+
+super + Return
+	urxvt
+
+super + space
+    dmenu_run -fn "-*-neep-medium-r-semicondensed-*-11-*-*-*-*-*-*-1"
+
+# make sxhkd reload its configuration files:
+super + Escape
+	pkill -USR1 -x sxhkd

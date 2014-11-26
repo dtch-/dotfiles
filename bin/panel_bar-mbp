@@ -1,0 +1,68 @@
+#! /bin/sh
+
+# . /home/rlee/scripts/panel_colors-bar
+
+DARK="#FF666666"
+WHITE="#FFCEF318"
+BG="#FF222222"
+
+BATC="/sys/class/power_supply/BAT0/capacity"
+BATS="/sys/class/power_supply/BAT0/status"
+
+#workspace(){
+#    SPACE_NUM=$(bspc query -D -d);
+#        case "$SPACE_NUM" in
+#            "1")
+#                WORKSPACE="%{F$LIGHT}●%{F-} %{F$DARK}● ●%{F-}";;
+#            "2")
+#                WORKSPACE="%{F$DARK}●%{F-} %{F$LIGHT}●%{F-} %{F$DARK}●%{F-}";;
+#            "3")
+#                WORKSPACE="%{F$DARK}● ●%{F-} %{F$LIGHT}●%{F-}";;
+#        esac
+#    echo -n $WORKSPACE
+#}
+
+workspace(){
+    SPACE_NUM=$(bspc query -D -d);
+        case "$SPACE_NUM" in
+            "1")
+                WORKSPACE="%{F$WHITE}i%{F-} %{F$DARK}ii iii iv v%{F-}";;
+            "2")
+                WORKSPACE="%{F$DARK}i%{F-} %{F$WHITE}ii%{F-} %{F$DARK}iii iv v%{F-}";;
+            "3")
+                WORKSPACE="%{F$DARK}i ii%{F-} %{F$WHITE}iii%{F-} %{F$DARK}iv v%{F-}";;
+            "4")
+                WORKSPACE="%{F$DARK}i ii iii%{F-} %{F$WHITE}iv%{F-} %{F$DARK}v%{F-}";;
+            "5")
+                WORKSPACE="%{F$DARK}i ii iii iv%{F-} %{F$WHITE}v%{F-}";;
+        esac
+    echo -n $WORKSPACE
+}
+
+dat(){
+	echo -n  $(date "+%H.%M")
+}
+
+mus(){
+	echo -n  $(test -z "$(mpc current)" || mpc current -f %title%)
+	#echo -n $(ps aux | grep -v "grep" | if grep -q "cmus"; then echo $(cmus-remote -Q | sed -n 's/tag title //p'); else echo "n/a"; fi)
+}
+
+vol(){
+    amixer get PCM | sed -n 's/^.*\[\([0-9]\+\)%.*$/\1/p' | uniq
+#    echo -n $(amixer get PCM | grep "Front Left:" | awk '{print $5}')
+}
+
+pause(){
+    echo -n $(mpc | if grep -q "paused"; then echo -n "▎▎"; else echo -n "♫"; fi)
+}
+
+bat(){
+    test "`cat $BATS`" = "Charging" && echo -n '+' || echo -n '-'
+    sed -n p $BATC
+}
+
+while :; do
+    printf "%s\n" "%{l} %{F$DARK}MPD%{F-} %{F$WHITE} $(pause) $(mus) %{F-}%{F$DARK}VOL%{F-} %{F$WHITE}$(vol)%%%{F-} %{c} $(workspace) %{r} %{F$DARK}BAT%{F-} %{F$WHITE}$(bat)%{F-} %{F$DARK}CLK%{F-} %{F$WHITE}$(dat)%{F-} "
+    sleep 1
+done	

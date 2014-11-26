@@ -1,0 +1,6 @@
+#!/bin/bash
+# (@)/runthrough
+
+for NAME in moose cow goose sow ; do
+    echo "I have a $NAME"
+done
