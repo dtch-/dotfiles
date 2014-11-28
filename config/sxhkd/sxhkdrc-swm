@@ -3,10 +3,8 @@
 #
 
 #
-# wm independant
+# wm independent
 #
-
-# terminal
 
 super + Return
     urxvt -g 63x15
@@ -16,6 +14,9 @@ super + alt + Escape
 
 super + space
 	dmenu_run -nb \#1d1d1d -sb \#1d1d1d -nf \#999999 -sf \#ffffff -fn "-*-neep-medium-r-semicondensed-*-11-*-*-*-c-*-*-*"
+
+super + Escape
+	pkill -USR1 -x sxhkd
 
 # cursor movement keys
 
@@ -157,17 +158,3 @@ super + F11
 
 super + F12
     mpc volume +10
-
-#
-# wm independent hotkeys
-#
-
-super + Return
-	urxvt
-
-super + space
-    dmenu_run -fn "-*-neep-medium-r-semicondensed-*-11-*-*-*-*-*-*-1"
-
-# make sxhkd reload its configuration files:
-super + Escape
-	pkill -USR1 -x sxhkd
