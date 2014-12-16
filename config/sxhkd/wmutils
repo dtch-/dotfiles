@@ -1,0 +1,79 @@
+# wm independent
+
+super + q
+	killw $(pfw)
+
+super + Return
+	urxvt -g 96x16
+
+super + space
+	dmenu_run -fn "-*-neep-medium-r-semicondensed-*-11-*-*-*-*-*-*-*" -nb \#1d1d1d -nf \#6f6f6f -sb \#1d1d1d -sf \#ffbb00
+
+super + Escape
+    pkill -USR1 -x sxhkd
+
+# stacking
+
+super + Tab
+    /home/dtch/bin/cycle.sh
+
+super + {Left,Down,Up,Right}
+    /home/dtch/bin/focus.sh {left,down,up,right}
+
+# to resize dwb to a divisible number
+super + shift + r
+    wtp `wattr xy $(pfw)` 880 780 `pfw`
+
+# movement
+
+super + k
+	wmv 0 40 $(pfw)
+super + l
+	wmv 0 -40 $(pfw)
+super + semicolon
+	wmv 40 0 $(pfw)
+super + j
+	wmv -40 0 $(pfw)
+
+super + ctrl + k
+    wmv 0 1 $(pfw)
+super + ctrl + l
+    wmv 0 -1 $(pfw)
+super + ctrl + semicolon
+    wmv 1 0 $(pfw)
+super + ctrl + j
+    wmv -1 0 $(pfw)
+
+# resize
+
+super + shift + semicolon 
+	wrs 40 0 $(pfw)
+super + shift + j
+	wrs -40 0 $(pfw)
+super + shift + l
+	wrs 0 -40 $(pfw)
+super + shift + k
+	wrs 0 40 $(pfw)
+
+super + shift + ctrl + semicolon
+    wrs 1 0 $(pfw)
+super + shift + ctrl + j
+    wrs -1 0 $(pfw)
+super + shift + ctrl + l
+    wrs 0 -1 $(pfw)
+super + shift + ctrl + k
+    wrs 0 1 $(pfw)
+
+# mouse movement
+
+super + alt + j
+    xdotool mousemove_relative -- -80 0
+
+super + alt + k
+    xdotool mousemove_relative -- 0 +80
+
+super + alt + l
+    xdotool mousemove_relative -- 0 -80
+
+super + alt + semicolon
+    xdotool mousemove_relative -- +80 0
