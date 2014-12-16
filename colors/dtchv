@@ -1,0 +1,50 @@
+*background:#1d1d1d
+*foreground:#b3b4b1
+
+!*geometry:  63x15
+
+*color0:    #1d1d1d
+*color1:    #dc6a3d
+*color2:    #427363
+*color3:    #ede265
+*color4:    #6a708b
+*color5:    #6a3ddc
+*color6:    #52707b
+*color7:    #b3b3b3
+
+*color8:    #4c4c4c
+*color9:    #d43f10
+*color10:   #3ddc6a
+*color11:   #ffbb00
+*color12:   #6ac0fd
+*color13:   #ef79ae
+*color14:   #49d4dd
+*color15:   #ffffff
+
+*highlightColor:            #333333
+*highlightTextColor:        #cef318
+*cursorColor:               #ffffff
+
+! Colored man pages
+URxvt.colorIT:              #cef318
+URxvt.colorBD:              #d43f10
+URxvt.colorUL:              #ffffff
+
+!urxvt*font:             -*-gohufont-*-*-*-*-11-*-*-*-*-*-*-1
+!urxvt*boldFont:         -*-gohufont-*-*-*-*-11-*-*-*-*-*-*-1
+!urxvt*italicFont:       -*-gohufont-*-*-*-*-11-*-*-*-*-*-*-1
+!urxvt*bolditalicFont:   -*-gohufont-*-*-*-*-11-*-*-*-*-*-*-1
+
+urxvt*font:        -*-neep-medium-r-semicondensed-*-11-*-*-*-*-*-*-*
+urxvt*boldFont:    -*-neep-medium-r-semicondensed-*-11-*-*-*-*-*-*-*
+urxvt*italicFont:  -*-neep-medium-r-semicondensed-*-11-*-*-*-*-*-*-*
+urxvt*bolditalicFont:  -*-neep-medium-r-semicondensed-*-11-*-*-*-*-*-*-*
+
+urxvt*scrollBar:        false
+urxvt*saveLines:        4096
+urxvt*pointerBlank:     true
+
+urxvt.perl-ext: default,url-select
+urxvt.keysym.M-u: perl:url-select:select_next
+urxvt.url-select.launcher: /usr/bin/dwb
+urxvt.url-select.underline: true 
