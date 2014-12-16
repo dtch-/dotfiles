@@ -1,0 +1,12 @@
+scriptencoding utf-8
+set encoding=utf-8
+colorscheme zbro
+syntax on
+
+set nu
+set expandtab
+set tabstop=4
+set autoindent
+
+set spelllang=en_us
+set list listchars=tab:»·,trail:·
