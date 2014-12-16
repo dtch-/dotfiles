@@ -1,0 +1,87 @@
+# /bin/zsh
+# ~/.zshrc
+##########
+
+#initial
+
+autoload -U promptinit &&
+autoload -U colors &&
+promptinit &&
+colors
+
+export PANEL_FIFO="/tmp/panel-fifo"
+export PATH=~/bin:~/.config/bspwm/panel:~/scripts:$PATH
+export LANG=en_US.UTF-8
+
+#aliases
+
+alias rm="rm -I"
+alias mv="mv -i"
+alias cp="cp -vi"
+
+alias vol="alsamixer"
+
+alias ratox="LD_LIBRARY_PATH=/usr/local/lib ratox"
+
+alias c="clear"
+alias lsa="ls -ah"
+alias bspwmrc="vim ~/.config/bspwm/bspwmrc"
+alias sxhkdrc="vim ~/.config/sxhkd/sxhkdrc"
+alias zshrc="vim ~/.zshrc"
+alias showinfo="syscat;termcolors"
+alias barcolor="vim ~/scripts/panel_colors-bar"
+alias v="vim"
+
+#functions
+
+# RATOX
+
+sendtext () {
+    echo $@ > text_in
+}
+
+sendfile () {
+    cat $@ > file_in
+}
+
+sprunge() {
+    curl -F 'sprunge=<-' http://sprunge.us
+}
+
+# easier extraction
+extract () {
+    if [ -f $1 ] ; then
+        case $1 in
+            *.tar.bz2) tar xvjf $1;;
+            *.tar.gz) tar xvzf $1;;
+            *.bz2) bunzip2 $1;;
+            *.rar) unrar x $1;;
+            *.gz) gunzip $1;;
+            *.tar) tar xvf $1;;
+            *.tbz2) tar xvjf $1;;
+            *.tgz) tar xvzf $1;;
+            *.zip) unzip $1;;
+            *.Z) uncompress $1;;
+            *.7z) 7za x $1;;
+            *) echo "'$1' cannot be extracted via >extract<" ;;
+        esac
+    else
+        echo "'$1' is not a valid file"
+    fi
+}
+
+mcd () {
+    mkdir $@ && cd $_
+}
+
+#prompts
+
+#prompt fade green
+#PROMPT=" % » "
+PROMPT=" %{$fg_bold[black]%}%T%{$fg_bold[white]%} ―― %{$reset_color%}"
+RPROMPT="%{$fg_bold[white]%}%~ %{$reset_color%}"
+
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.histfile
+HISTSIZE=1000
+SAVEHIST=1000
