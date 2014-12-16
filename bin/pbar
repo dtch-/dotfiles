@@ -1,7 +1,7 @@
 #! /bin/bash
 
 #zbar | bar -f "-*-gohufont-medium-*-*-11-*-*-*-*-*-*-1"  -B\#ff222222 -g 960x30+480+10
-panel_bar-mbp | bar -f "-*-gohufont-medium-*-*-11-*-*-*-*-*-*-1"  -B\#ff1d1d1d -g 1440x18+0+0
+panel_bar | bar -f "-*-gohufont-medium-*-*-11-*-*-*-*-*-*-1"  -B\#ff1d1d1d -g 1920x18+0+0
 #panel_bar | bar -f "-*-tewi-medium-*-*-*-11-*-*-*-*-*-1"  -B\#ff222222 -g 1920x18+0+0
 #panel_bar | bar -f "-*-uushi-medium-r-normal-*-11-*-*-*-*-*-*-1" -B\#ff222222 -g 1920x18+0+0
 #panel_bar | bar -f "-*-neep-medium-r-semicondensed-*-11-*-*-*-*-*-*-1","-*-uushi-medium-r-normal-*-11-*-*-*-*-*-*-1" -B\#ff222222 -g 1920x18+0+0

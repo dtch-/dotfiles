@@ -7,8 +7,8 @@ d() { tput sgr0; }
 
 gitdir=http://www.github.com/dtch-/
 myblog=http://www.dtch.info/
-BATC="/sys/class/power_supply/BAT0/capacity"
-BATS="/sys/class/power_supply/BAT0/status"
+#BATC="/sys/class/power_supply/BAT0/capacity"
+#BATS="/sys/class/power_supply/BAT0/status"
 
 system() {
     sed "/^$/d;s/\s*[\(\\]\+.*$//" /etc/issue
@@ -45,7 +45,6 @@ $(c)WMNAME    $(d)$(wmname)
 $(c)TERMINAL  $(d)$TERM
 $(c)SHELL     $(d)$SHELL
 $(c)FONT      $(d)$(fontname)
-$(c)BAT       $(d)$(bat)
 $(c)PROC      $(d)$(~/bin/cpu -p)
 $(c)MEMORY    $(d)$(~/bin/memory -u)
 $(c)DATE      $(d)$(mydate)
