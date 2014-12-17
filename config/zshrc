@@ -32,6 +32,8 @@ alias showinfo="syscat;termcolors"
 alias barcolor="vim ~/scripts/panel_colors-bar"
 alias v="vim"
 
+alias rick='echo '\''curl -L http://bit.ly/10hA8iC | bash'\'''
+
 #functions
 
 # RATOX
@@ -85,3 +87,13 @@ RPROMPT="%{$fg_bold[white]%}%~ %{$reset_color%}"
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
+
+# zsh Syntax Highlighting
+
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+ZSH_HIGHLIGHT_HIGHLIGHTER=(main)
+
+ZSH_HIGHLIGHT_STYLES[command]='fg=yellow,bold'
+ZSH_HIGHLIGHT_STYLES[alias]='fg=cyan,bold'
+
