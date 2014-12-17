@@ -1,0 +1,31 @@
+#!/bin/bash
+# (@)/exists
+# check to see if file exists and if not, to create the file
+# dtch (c) 2014 - wtfpl
+
+if [ -f $1 ] ; then
+    echo "$1 exists and is a regular file."
+elif [ -d $1 ] ; then
+    echo "$1 exists and is a directory."
+elif [ -p $1 ] ; then
+    echo "$1 exists and is a fifo/pipe."
+else
+    echo "$1 does not exist. Create? (y/n) "
+    read usrinput
+    if [ $usrinput = "y" ] ; then
+        echo "Should it be a regular file, directory, or fifo? (f/d/p)"
+        read filetype
+            if [ $filetype = "f" ] ; then
+                touch $1
+                echo "File $1 created in current directory."
+            elif [ $filetype = "d" ] ; then
+                mkdir $1
+                echo "Directory $1 created."
+            elif [ $filetype = "p" ] ; then
+                mkfifo $1
+                echo "FIFO $1 created."
+            fi
+    else
+        echo "File not created."
+    fi
+fi
